@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv";
 import userRouter from "./router/userRouter.js"
  import bankrouter from "./router/bankRouter.js"
+ import transitionRouter from "./router/transitionRouter.js";
 import connectdb from "./Database/index.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/app/user/vi', userRouter);
 app.use('/app/bank/v1', bankrouter);
+app.use('/app/transition/v1',transitionRouter );
 
 app.get( '/',(req, res)=>{
     res.send("we are working on this path fine");

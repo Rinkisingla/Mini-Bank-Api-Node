@@ -1,5 +1,5 @@
  import mongoose, {Schema} from "mongoose";
- const transactionschema = new Schema ({
+ const transactionSchema = new Schema ({
      userId:{
         type: Schema.Types.ObjectId,
         ref: "User"
@@ -9,26 +9,26 @@
         enum: ['debit', 'credit'],
         required: true
         },
-    accountNumber:{
-        type:String,
-        require:true,
+    amount:{
+        type:Number,
+        required:true
      },
      balanceAfter:{
         type:Number,
-        require:true,
+        required:true,
        
      },
      description:{
     type:String,
-    require:true,
+    required:true,
      },
      counterpartyAccount:{
     type:String,
-    require:true,
+    required:true,
      },
 
  }, {timestamps:true})
-  export const  Transaction = mongoose.model('Transaction', transactionschema)
+  export const  Transaction = mongoose.model('Transaction', transactionSchema)
 
 
 
